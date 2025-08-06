@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <data>
+
+        <!-- SETTINGS VIEW FORM -->
+        <record id="view_res_config_settings_commercium" model="ir.ui.view">
+            <field name="name">res.config.settings.commercium</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='settings']" position="inside">
+                    <div class="app_settings_block" data-string="Commercium Configuration" string="Commercium Configuration" data-icon="/commercium_connector/static/src/img/logo.png">
+                        <div class="">
+                            <h2>Connect to Commercium App</h2>
+                            <div class="mt16 o_settings_container">
+                                <div class="col-12 col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header" data-toggle="collapse" data-target="#commercium_collapse_creds" aria-expanded="true">
+                                            <h5 class="mb-0">
+                                                <a href="#">Webservice Credentials</a>
+                                            </h5>
+                                        </div>
+                                        <div id="commercium_collapse_creds" class="collapse show">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <label for="commercium_domain" />
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <field name="commercium_domain" readonly="1" style=" display: contents; " />
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <!-- <div>
+                                                            <button  name="copy_commercium_domain"  type="object"
+                                                                    class="btn btn-secondary btn-sm ml-2 copy-btn"
+                                                                    data-copy-id="commercium_domain">
+                                                                Copy
+                                                            </button>
+                                                        </div> -->
+                                                    </div>
+
+                                                </div>
+                                                <br/>
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <label for="commercium_db" />
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <field name="commercium_db" readonly="1" style=" display: contents; " />
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <!-- <div>
+                                                            <button name="copy_commercium_db"  type="object"
+                                                                    class="btn btn-secondary btn-sm ml-2 copy-btn"
+                                                                    data-copy-id="commercium_db">
+                                                                Copy
+                                                            </button>
+                                                        </div> -->
+                                                    </div>
+
+                                                </div>
+                                                <br/>
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <label for="commercium_username" />
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <field name="commercium_username" readonly="1" style=" display: contents; " />
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <!-- <div>
+                                                            <button name="copy_commercium_username"  type="object"
+                                                                    class="btn btn-secondary btn-sm ml-2 copy-btn"
+                                                                    data-copy-id="commercium_username">
+                                                                Copy
+                                                            </button>
+                                                        </div> -->
+                                                    </div>
+
+                                                </div>
+                                                <br/>
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <label for="commercium_password" />
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <field name="commercium_password" readonly="1" style=" display: contents; " />
+                                                        <div name="commercium_password" class="o_field_widget o_readonly_modifier o_field_char" style=" display: contents; "><span>(Same as login password)</span></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="row form-group">
+                                                    <div class="col-sm-5">
+                                                        <label class="col-form-label" style=" font-weight: 500; ">Connection Status : </label>
+                                                    </div>
+                                                    <div class="col-sm-6 d-flex gap-2 align-items-center">
+                                                        <!-- Hidden field to hold the value -->
+                                                        <field name="platform_connected" invisible="1"/>
+
+                                                        <!-- Show NOT CONNECTED when False -->
+                                                        <div attrs="{'invisible': [('platform_connected', '=', True)]}">
+                                                            <span class="text-danger fw-bold">NOT CONNECTED</span>
+                                                        </div>
+
+                                                        <!-- Show Disconnect button when True -->
+                                                        <button name="action_disconnect_platform"
+                                                                string="Conneted"
+                                                                type="object"
+                                                                class="btn btn-success"
+                                                                confirm="Are you sure you want to disconnect the platform?"
+                                                                attrs="{'invisible': [('platform_connected', '=', False)]}" />
+                                                    </div>
+
+
+                                                </div>
+                                                
+                                                <div class="row form-group">
+                                                    <div class="col-sm-5">
+                                                        <p class="o_form_label col-form-label">Login to be :</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <field name="platform_connected" invisible="1"/>
+                                                        <a href="https://commercium-dev.constacloud.com/auth/registration?source=ODOO"
+                                                        attrs="{'invisible': [('platform_connected', '=', True)]}"
+                                                        target="_blank"
+                                                        class="btn btn-success"
+                                                        id="action_connect_commercium"
+                                                        role="button">
+                                                        Launch Commercium
+                                                        </a>
+
+                                                        <a href="https://commercium-dev.constacloud.com"
+                                                        attrs="{'invisible': [('platform_connected', '=', False)]}"
+                                                        target="_blank"
+                                                        class="btn btn-success"
+                                                        id="action_connect_commercium"
+                                                        role="button">
+                                                        Launch Commercium
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6">
+
+                                    <div class="card">
+                                        <div class="card-header" data-toggle="collapse" data-target="#commercium_collapse_guide" aria-expanded="true">
+                                            <h5 class="mb-0">
+                                                <a href="#">How to connect this module step-by-step</a>
+                                            </h5>
+                                        </div>
+                                        <div id="commercium_collapse_guide" class="collapse show"> <!-- show added here -->
+                                            <div class="card-body">
+                                                <p><strong>Step 1:</strong> Copy the domain, database and username details shown in this module.</p>
+                                                <p><strong>Step 2:</strong> After logging in or registering on Commercium, paste these details into the corresponding fields in your Commercium account.</p>
+                                                <p><strong>Step 3:</strong> Connect the platform.</p>
+
+                                                <ul>
+                                                    <li>Make sure your internet connection is active.</li>
+                                                    <li>Ensure the API credentials are valid.</li>
+                                                    <li>The password you use here is the same as your Odoo login password.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+     <template id="assets_backend_inherit" inherit_id="web.assets_backend" name="Commercium Connector Assets">
+        <xpath expr="." position="inside">
+        <script type="text/javascript" src="/commercium_connector/static/src/js/disconnect_confirm.js"/>
+        </xpath>
+    </template>
+
+    
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem 
+        id="menu_commercium_connector"
+        name="Commercium Configuration"
+        parent="base.menu_config"
+        sequence="10"
+        action="action_commercium_settings"
+        web_icon="/commercium_connector/static/src/img/icon.png"
+    />
+
+    <!-- Example Action for Settings -->
+    <record id="action_commercium_settings" model="ir.actions.act_window">
+        <field name="name">Commercium Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'commercium_connector'}</field>
+    </record>
+</odoo>
