@@ -10,9 +10,9 @@
             <field name="inherit_id" ref="base.res_config_settings_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//div[@class='settings']" position="inside">
-                    <div class="app_settings_block" data-string="Test Configuration" string="Commercium Configuration" data-icon="/test_connector/static/src/img/logo.png">
+                    <div class="app_settings_block" data-string="Test Configuration" string="test Configuration" data-icon="/test_connector/static/src/img/logo.png">
                         <div class="">
-                            <h2>Connect to Commercium App</h2>
+                            <h2>Connect to test App</h2>
                             <div class="mt16 o_settings_container">
                                 <div class="col-12 col-lg-6">
                                     <div class="card">
@@ -21,20 +21,20 @@
                                                 <a href="#">Webservice Credentials</a>
                                             </h5>
                                         </div>
-                                        <div id="commercium_collapse_creds" class="collapse show">
+                                        <div id="test_collapse_creds" class="collapse show">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-sm-4">
-                                                        <label for="commercium_domain" />
+                                                        <label for="test_domain" />
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <field name="commercium_domain" readonly="1" style=" display: contents; " />
+                                                        <field name="test_domain" readonly="1" style=" display: contents; " />
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <!-- <div>
-                                                            <button  name="copy_commercium_domain"  type="object"
+                                                            <button  name="copy_test_domain"  type="object"
                                                                     class="btn btn-secondary btn-sm ml-2 copy-btn"
-                                                                    data-copy-id="commercium_domain">
+                                                                    data-copy-id="test_domain">
                                                                 Copy
                                                             </button>
                                                         </div> -->
@@ -44,16 +44,16 @@
                                                 <br/>
                                                 <div class="row">
                                                     <div class="col-sm-4">
-                                                        <label for="commercium_db" />
+                                                        <label for="test_db" />
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <field name="commercium_db" readonly="1" style=" display: contents; " />
+                                                        <field name="test_db" readonly="1" style=" display: contents; " />
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <!-- <div>
-                                                            <button name="copy_commercium_db"  type="object"
+                                                            <button name="copy_test_db"  type="object"
                                                                     class="btn btn-secondary btn-sm ml-2 copy-btn"
-                                                                    data-copy-id="commercium_db">
+                                                                    data-copy-id="test_db">
                                                                 Copy
                                                             </button>
                                                         </div> -->
@@ -63,16 +63,16 @@
                                                 <br/>
                                                 <div class="row">
                                                     <div class="col-sm-4">
-                                                        <label for="commercium_username" />
+                                                        <label for="test_username" />
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <field name="commercium_username" readonly="1" style=" display: contents; " />
+                                                        <field name="test_username" readonly="1" style=" display: contents; " />
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <!-- <div>
-                                                            <button name="copy_commercium_username"  type="object"
+                                                            <button name="copy_test_username"  type="object"
                                                                     class="btn btn-secondary btn-sm ml-2 copy-btn"
-                                                                    data-copy-id="commercium_username">
+                                                                    data-copy-id="test_username">
                                                                 Copy
                                                             </button>
                                                         </div> -->
@@ -82,11 +82,11 @@
                                                 <br/>
                                                 <div class="row">
                                                     <div class="col-sm-4">
-                                                        <label for="commercium_password" />
+                                                        <label for="test_password" />
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <field name="commercium_password" readonly="1" style=" display: contents; " />
-                                                        <div name="commercium_password" class="o_field_widget o_readonly_modifier o_field_char" style=" display: contents; "><span>(Same as login password)</span></div>
+                                                        <field name="test_password" readonly="1" style=" display: contents; " />
+                                                        <div name="test_password" class="o_field_widget o_readonly_modifier o_field_char" style=" display: contents; "><span>(Same as login password)</span></div>
                                                     </div>
                                                 </div>
 
@@ -123,22 +123,22 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <field name="platform_connected" invisible="1"/>
-                                                        <a href="https://commercium-dev.constacloud.com/auth/registration?source=ODOO"
+                                                        <a href="https://test-dev.constacloud.com/auth/registration?source=ODOO"
                                                         attrs="{'invisible': [('platform_connected', '=', True)]}"
                                                         target="_blank"
                                                         class="btn btn-success"
-                                                        id="action_connect_commercium"
+                                                        id="action_connect_test"
                                                         role="button">
-                                                        Launch Commercium
+                                                        Launch test
                                                         </a>
 
-                                                        <a href="https://commercium-dev.constacloud.com"
+                                                        <a href="https://test-dev.constacloud.com"
                                                         attrs="{'invisible': [('platform_connected', '=', False)]}"
                                                         target="_blank"
                                                         class="btn btn-success"
-                                                        id="action_connect_commercium"
+                                                        id="action_connect_test"
                                                         role="button">
-                                                        Launch Commercium
+                                                        Launch test
                                                         </a>
                                                     </div>
                                                 </div>
@@ -150,15 +150,15 @@
                                 <div class="col-12 col-lg-6">
 
                                     <div class="card">
-                                        <div class="card-header" data-toggle="collapse" data-target="#commercium_collapse_guide" aria-expanded="true">
+                                        <div class="card-header" data-toggle="collapse" data-target="#test_collapse_guide" aria-expanded="true">
                                             <h5 class="mb-0">
                                                 <a href="#">How to connect this module step-by-step</a>
                                             </h5>
                                         </div>
-                                        <div id="commercium_collapse_guide" class="collapse show"> <!-- show added here -->
+                                        <div id="test_collapse_guide" class="collapse show"> <!-- show added here -->
                                             <div class="card-body">
                                                 <p><strong>Step 1:</strong> Copy the domain, database and username details shown in this module.</p>
-                                                <p><strong>Step 2:</strong> After logging in or registering on Commercium, paste these details into the corresponding fields in your Commercium account.</p>
+                                                <p><strong>Step 2:</strong> After logging in or registering on test, paste these details into the corresponding fields in your test account.</p>
                                                 <p><strong>Step 3:</strong> Connect the platform.</p>
 
                                                 <ul>
@@ -180,9 +180,9 @@
         </record>
     </data>
 
-     <template id="assets_backend_inherit" inherit_id="web.assets_backend" name="Commercium Connector Assets">
+     <template id="assets_backend_inherit" inherit_id="web.assets_backend" name="test Connector Assets">
         <xpath expr="." position="inside">
-        <script type="text/javascript" src="/commercium_connector/static/src/js/disconnect_confirm.js"/>
+        <script type="text/javascript" src="/test_connector/static/src/js/disconnect_confirm.js"/>
         </xpath>
     </template>
 
