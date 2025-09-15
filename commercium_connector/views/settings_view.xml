@@ -4,19 +4,19 @@
     <data>
 
         <!-- SETTINGS VIEW FORM -->
-        <record id="view_res_config_settings_commercium" model="ir.ui.view">
-            <field name="name">res.config.settings.commercium</field>
+        <record id="view_res_config_settings_test" model="ir.ui.view">
+            <field name="name">res.config.settings.test</field>
             <field name="model">res.config.settings</field>
             <field name="inherit_id" ref="base.res_config_settings_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//div[@class='settings']" position="inside">
-                    <div class="app_settings_block" data-string="Commercium Configuration" string="Commercium Configuration" data-icon="/commercium_connector/static/src/img/logo.png">
+                    <div class="app_settings_block" data-string="Test Configuration" string="Commercium Configuration" data-icon="/test_connector/static/src/img/logo.png">
                         <div class="">
                             <h2>Connect to Commercium App</h2>
                             <div class="mt16 o_settings_container">
                                 <div class="col-12 col-lg-6">
                                     <div class="card">
-                                        <div class="card-header" data-toggle="collapse" data-target="#commercium_collapse_creds" aria-expanded="true">
+                                        <div class="card-header" data-toggle="collapse" data-target="#test_collapse_creds" aria-expanded="true">
                                             <h5 class="mb-0">
                                                 <a href="#">Webservice Credentials</a>
                                             </h5>
