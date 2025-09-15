@@ -2,7 +2,7 @@
     'name': 'Test Connector',
     'version': '1.0',
     'category': 'Custom',
-    'summary': 'Connect Odoo with Commercium',
+    'summary': 'Connect Odoo with Test',
     'depends': ['base','web'],
     'data': [
         'views/menu.xml',
