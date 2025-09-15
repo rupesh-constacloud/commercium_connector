@@ -1,5 +1,5 @@
 {
-    'name': 'Commercium Connector',
+    'name': 'Test Connector',
     'version': '1.0',
     'category': 'Custom',
     'summary': 'Connect Odoo with Commercium',
