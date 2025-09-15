@@ -28,29 +28,29 @@ class ResConfigSettings(models.TransientModel):
         param = self.env['ir.config_parameter'].sudo()
         param.set_param('platform_connected', str(self.platform_connected))
 
-    commercium_username = fields.Char(
+    test_username = fields.Char(
         string="Username : ",
-        config_parameter='commercium_connector.username'
+        config_parameter='test_connector.username'
     )
-    commercium_password = fields.Char(
+    test_password = fields.Char(
         string="Password : ",
-        config_parameter='commercium_connector.password'
+        config_parameter='test_connector.password'
     )
-    commercium_db = fields.Char(
+    test_db = fields.Char(
         string="DB Name : ",
-        config_parameter='commercium_connector.db'
+        config_parameter='test_connector.db'
     )
-    commercium_domain = fields.Char(
+    test_domain = fields.Char(
         string="Domain : ",
-        config_parameter='commercium_connector.domain'
+        config_parameter='test_connector.domain'
     )
 
     @api.model
     def disconnect_platform(self):
         print('Hello - disconnect_platform')
         try:
-            # Dummy URL – replace with actual Commercium endpoint
-            url = f"https://commercium-dev.constacloud.com/handle-oauth-callback?available_platform_name=ODOO&platform_id={self.platform_id}"
+            # Dummy URL – replace with actual test endpoint
+            url = f"https://test-dev.constacloud.com/handle-oauth-callback?available_platform_name=ODOO&platform_id={self.platform_id}"
             print("url : ", url)
             response = requests.post(f"{url}", json={
                 "platform_id": self.env.company.id,  # or any identifier
@@ -81,8 +81,8 @@ class ResConfigSettings(models.TransientModel):
 
         error_message = "Platform disconnection failed. Please try again later."
         
-        # Dummy URL – replace with actual Commercium endpoint
-        url = f"https://commercium-dev.constacloud.com/market_connect/handle-oauth-callback?available_platform_name=ODOO&platform_id={self.platform_id}"
+        # Dummy URL – replace with actual test endpoint
+        url = f"https://test-dev.constacloud.com/market_connect/handle-oauth-callback?available_platform_name=ODOO&platform_id={self.platform_id}"
         response = requests.get(f"{url}")
         if response.status_code == 200:
             response_data = response.json()
@@ -127,19 +127,19 @@ class ResConfigSettings(models.TransientModel):
             }
         }
 
-    def copy_commercium_domain(self):
+    def copy_test_domain(self):
         # dummy method, button click se kuch nahi hoga
         return True
 
-    def copy_commercium_username(self):
+    def copy_test_username(self):
         # dummy method, button click se kuch nahi hoga
         return True
 
-    def copy_commercium_password(self):
+    def copy_test_password(self):
         # dummy method, button click se kuch nahi hoga
         return True
 
-    def copy_commercium_db(self):
+    def copy_test_db(self):
         # dummy method, button click se kuch nahi hoga
         return True
 
@@ -153,18 +153,18 @@ class ResConfigSettings(models.TransientModel):
         
         # Populate autofill values dynamically from session/db
         res.update({
-            'commercium_username': self.env.user.login,
-            'commercium_db': self._cr.dbname,
-            'commercium_domain': clean_domain,
+            'test_username': self.env.user.login,
+            'test_db': self._cr.dbname,
+            'test_domain': clean_domain,
         })
 
         return res
 
-    def action_connect_commercium(self):
+    def action_connect_test(self):
         # Optional if you still want to use the connect button
         self.ensure_one()
-        # _logger.info(f"Trying to connect with: {self.commercium_username} / {self.commercium_db}")
-        print(f"Trying to connect with: {self.commercium_username} / {self.commercium_db}")
+        # _logger.info(f"Trying to connect with: {self.test_username} / {self.test_db}")
+        print(f"Trying to connect with: {self.test_username} / {self.test_db}")
         return {
             'type': 'ir.actions.client',
             'tag': 'display_notification',
